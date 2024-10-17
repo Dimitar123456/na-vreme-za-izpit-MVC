@@ -1,4 +1,5 @@
 ﻿using ConsoleApp1;
+using ConsoleApp1.Controllers;
 using ConsoleApp1.View;
 
 namespace ConsoleApp1
@@ -7,8 +8,8 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Display display = new Display();
-            display.Input();
+            Controller controller = new Controller();
+            controller.Start();
         }
     }
 }

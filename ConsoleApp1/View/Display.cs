@@ -22,7 +22,7 @@ namespace ConsoleApp1.View
             model.minutinaizpita = int.Parse(Console.ReadLine());
             Console.WriteLine("vuvedi minuti na pristigane");
             model.minutinapristigane = int.Parse(Console.ReadLine());
-            model.Navremelisum();
+            
         }
     }
 }
