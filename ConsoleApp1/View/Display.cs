@@ -7,22 +7,47 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.View
 {
-    public class Display
+    public class Display:Model
     {
-        
+        public string Message { get; set; }
         public void Input()
         {
-            Model model = new Model();
+           
 
             Console.WriteLine("vuvedi chas na izpit");
-            model.chasnaizpita = int.Parse(Console.ReadLine());
+            Chasnaizpita = int.Parse(Console.ReadLine());
             Console.WriteLine("vuvedi chas na pristgane");
-            model.chasnapristigane = int.Parse(Console.ReadLine());
+            Chasnapristigane = int.Parse(Console.ReadLine());
             Console.WriteLine("vuvedi minuti na izpit");
-            model.minutinaizpita = int.Parse(Console.ReadLine());
+            Minutinaizpita = int.Parse(Console.ReadLine());
             Console.WriteLine("vuvedi minuti na pristigane");
-            model.minutinapristigane = int.Parse(Console.ReadLine());
+            Minutinapristigane = int.Parse(Console.ReadLine());
             
+        }
+        public void Output() 
+        {
+            if (Chasnapristigane == Chasnaizpita && Minutinapristigane == Minutinaizpita)
+            {
+                this.Message = "student is just on time";
+                
+            }
+            else if (Chasnapristigane == Chasnaizpita && Minutinapristigane <= Minutinaizpita - 31)
+            {
+                this.Message = "student is early";
+            }
+            else if (Chasnapristigane <= Chasnaizpita - 1)
+            {
+                this.Message = "student is early";
+            }
+            else if (Chasnapristigane == Chasnaizpita && Minutinapristigane >= Minutinaizpita + 1)
+            {
+                this.Message = "student is late";
+            }
+            else if (Chasnapristigane >= Chasnaizpita + 1)
+            {
+                this.Message = "student is late";
+            }
+            Console.WriteLine(this.Message);
         }
     }
 }

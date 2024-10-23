@@ -16,7 +16,11 @@ namespace ConsoleApp1.Controllers
         public void Start()
         {
             display.Input();
-            model.Navremelisum();
+            model.Chasnapristigane=display.Chasnapristigane;
+            model.Chasnaizpita=display.Chasnaizpita;
+            model.Minutinapristigane =display.Minutinapristigane;
+            model.Minutinaizpita=display.Minutinaizpita;
+            display.Output();
         }
                 
      }

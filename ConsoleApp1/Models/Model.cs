@@ -8,107 +8,93 @@ namespace ConsoleApp1.Models
 {
     public class Model
     {
-        public int chasnaizpita { get; set; }
-        public int minutinaizpita { get; set; }
-        public int chasnapristigane {  get; set; }
-        public int minutinapristigane { get; set; }
-
-        public void Navremelisum()
-        { 
-            if(chasnapristigane == chasnaizpita && minutinapristigane == minutinaizpita)
-            {
-                if (chasnaizpita > 24 || chasnapristigane > 24)
+        private int chasnaizpita;
+        private int minutinaizpita;
+        private int chasnapristigane;
+        private int minutinapristigane;
+        public string Message { get; set; }
+        public int Chasnaizpita
+        {
+            get { return this.chasnaizpita; }
+            set 
+            { 
+                if (value > 24) 
                 {
-                    Console.WriteLine("wrong input for hours");
+                    this.Message="greshen chas";
                 }
-                else
-                {
-                    if (minutinaizpita > 60 || minutinapristigane > 60)
-                    {
-                        Console.WriteLine("wrong input for minutes");
-                    }
-                    else
-                    {
-                        Console.WriteLine("student is just on time");
-                    }
-                }
-
+                else { chasnaizpita = value; }
             }
-            else if (chasnapristigane == chasnaizpita && minutinapristigane <= minutinaizpita-30)
-            {
-                if (chasnaizpita > 24 || chasnapristigane > 24)
-                {
-                    Console.WriteLine("wrong input for hours");
-                }
-                else
-                {
-                    if (minutinaizpita > 60 || minutinapristigane > 60)
-                    {
-                        Console.WriteLine("wrong input for minutes");
-                    }
-                    else
-                    {
-                        Console.WriteLine("student is early");
-                    }
-                }
-            }
-            else if(chasnapristigane <= chasnaizpita - 1)
-            {
-                if (chasnaizpita > 24 || chasnapristigane > 24)
-                {
-                    Console.WriteLine("wrong input for hours");
-                }
-                else
-                {
-                    if (minutinaizpita > 60 || minutinapristigane > 60)
-                    {
-                        Console.WriteLine("wrong input for minutes");
-                    }
-                    else
-                    {
-                        Console.WriteLine("student is early");
-                    }
-                }
-            }
-            else if (chasnapristigane == chasnaizpita && minutinapristigane >= minutinaizpita+30)
-            {
-                if (chasnaizpita > 24 || chasnapristigane > 24)
-                {
-                    Console.WriteLine("wrong input for hours");
-                }
-                else
-                {
-                    if (minutinaizpita > 60 || minutinapristigane > 60)
-                    {
-                        Console.WriteLine("wrong input for minutes");
-                    }
-                    else
-                    {
-                        Console.WriteLine("student is late");
-                    }
-                }
-            }
-            else if(chasnapristigane >= chasnaizpita + 1)
-            {
-                if (chasnaizpita > 24 || chasnapristigane > 24)
-                {
-                    Console.WriteLine("wrong input for hours");
-                }
-                else
-                {
-                    if (minutinaizpita > 60 || minutinapristigane > 60)
-                    {
-                        Console.WriteLine("wrong input for minutes");
-                    }
-                    else
-                    {
-                        Console.WriteLine("student is late");
-                    }
-                }
-            }
-            
-            
         }
+        public int Minutinaizpita
+        {
+            get { return this.minutinaizpita; }
+            set
+            {
+                if (value > 60)
+                {
+                    Console.WriteLine("greshni minuti");
+                }
+                else
+                {
+                    minutinaizpita = value;
+                }
+            }
+        }
+        public int Chasnapristigane
+        {
+            get { return this.chasnapristigane; }
+            set
+            {
+                if (value > 24)
+                {
+                    Console.WriteLine("greshen chas");
+                }
+                else { chasnapristigane = value; }
+                
+            }
+        }
+        public int Minutinapristigane
+        {
+            get { return this.minutinapristigane; }
+            set
+            {
+                if (value > 60)
+                {
+                    Console.WriteLine("greshni minuti");
+                }
+                else
+                {
+                    minutinapristigane = value;
+                }
+                
+            }
+        }
+
+        //public void Navremelisum()
+        //{ 
+        //    if(chasnapristigane == chasnaizpita && minutinapristigane == minutinaizpita)
+        //    {
+        //        this.Message = "student is just on time";
+        //    }
+        //    else if (chasnapristigane == chasnaizpita && minutinapristigane <= minutinaizpita-31)
+        //    {
+        //        this.Message = "student is early";
+        //    }
+        //    else if (chasnapristigane <= chasnaizpita - 1)
+        //    {
+        //        this.Message = "student is early";
+        //    }
+        //    else if (chasnapristigane == chasnaizpita && minutinapristigane >= minutinaizpita+1)
+        //    {
+        //        this.Message = "student is late";
+        //    }
+        //    else if (chasnapristigane >= chasnaizpita + 1)
+        //    {
+        //                this.Message="student is late";
+        //    }
+            
+            
+        //}
 
     }
 }
